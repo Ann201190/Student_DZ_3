@@ -1,0 +1,29 @@
+<h1 style="text-align: center;">Список студентов</h1>
+
+{{#if students.length}}
+{{#each students}}
+<div class="modal modal-sheet position-static d-block bg-secondary py-5" tabindex="-1" role="dialog" id="modalSheet">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content rounded-6 shadow">
+      <div class="modal-header border-bottom-0">
+        <h5 class="modal-title">{{lastname}} {{firstname}} {{patronymic}}</h5>
+
+      </div>
+      <div class="modal-body py-0">
+        <p class="price">Фамилия студента: {{lastname}}</p>
+        <p class="price">Имя студента: {{firstname}}</p>
+        <p class="price">Отчество студента: {{patronymic}}</p>
+        <p class="price">Возраст студента: {{age}}</p>
+        <p class="price">Группа: {{group}}</p>
+      </div>
+      <div class="modal-footer flex-column border-top-0">
+        <a class="btn btn-primary" href="/students/id={{id}}/edit?allow=true" role="button">Редактировать</a>
+        <a class="btn btn-danger" href="/students/id={{id}}/del" role="button">Удалить</a>
+      </div>
+    </div>
+  </div>
+</div>
+{{/each}}
+{{else}}
+<p>Студентов пока нет</p>
+{{/if}}
